@@ -4,10 +4,10 @@ import cors from "cors";
 import usersRoutes from "./routes/users.js";
 import authRoutes from "./routes/auth.js";
 import uploadRoutes from "./routes/upload.js";
+import twilioRoutes from "./routes/twilio.js";
 import dotenv from "dotenv";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import twilio from "twilio";
 
 // EXPRESS
 const app = express();
@@ -42,7 +42,8 @@ app.use("/users", usersRoutes);
 app.use("/auth", authRoutes);
 // FILE UPLOADING
 app.use("/", uploadRoutes);
-
+// TWILIO
+app.use("/message", twilioRoutes);
 // --- END ROUTES ---
 
 // MONGOOSE CONNECTION
